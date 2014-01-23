@@ -24,8 +24,11 @@ SOFTWARE.
 
 package bq.spring.mvc.demo.login.service;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import bq.spring.mvc.demo.login.dao.LoginLogDao;
 import bq.spring.mvc.demo.login.dao.UserDao;
@@ -45,8 +48,11 @@ import bq.spring.mvc.demo.login.domain.User;
 @Service
 public class UserService {
 
+	private static Logger logger = Logger.getLogger(UserService.class);
+	
 	@Autowired
 	private UserDao userDao;
+	
 	@Autowired
 	private LoginLogDao logDao;
 	
@@ -59,6 +65,8 @@ public class UserService {
 	}
 	
 	public void loginSuccess(User user){
+		logger.debug("user login successfully!");
+		
 		user.setCredits(5+user.getCredits());
 		
 		LoginLog log = new LoginLog();
@@ -67,7 +75,10 @@ public class UserService {
 		log.setLoginDate(user.getLastVisitDate());
 
 		userDao.updateUserLoginInfo(user);
+		logger.debug("update user login info");
+		
 		logDao.insertLoginLog(log);
+		logger.debug("write login log");
 	}
 	
 }

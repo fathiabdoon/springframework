@@ -1,4 +1,4 @@
-package com.bq.demo.activemq.queue.one;
+package bq.activemq.queue.demo1;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;

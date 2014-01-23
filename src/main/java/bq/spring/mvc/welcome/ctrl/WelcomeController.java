@@ -22,53 +22,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bq.spring.mvc.theme;
+package bq.spring.mvc.welcome.ctrl;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ThemeResolver;
 
 /**
- * <b> show hoo to dynamically change theme </b>
+ * <b> welcome main page controller </b>
  *
- * <p> </p>
+ * <p> because Spring DispatcherServlet mapped to all "/", so we need a controller to
+ * handler the welcome-files, because under this situation welcome-file-list in web.xml will not work
+ * </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *
- * Created at Jan 22, 2014 4:08:32 PM
+ * Created at Jan 21, 2014 9:51:12 PM
  *
  */
 
-@Controller("themes")
-@RequestMapping(value="/theme")
-public class DynamicThemeController {
-
-	@Autowired
-	private ThemeResolver themeResolver;
+@Controller
+@RequestMapping(value="/")
+public class WelcomeController {
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String defaultTheme(Model model){
-		return "themes/theme_view";
-	}
-	
-	@RequestMapping(value="/{theme}")
-	public void changeTheme(@PathVariable String theme, HttpServletRequest request, HttpServletResponse response){
-		themeResolver.setThemeName(request, response, theme);
-	}
-
-	public ThemeResolver getThemeResolver() {
-		return themeResolver;
-	}
-
-	public void setThemeResolver(ThemeResolver themeResolver) {
-		this.themeResolver = themeResolver;
+	public String defaultPage(){
+		return "index";
 	}
 	
 }

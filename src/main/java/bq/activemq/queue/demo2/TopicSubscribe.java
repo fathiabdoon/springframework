@@ -1,4 +1,4 @@
-package com.bq.demo.activemq.queue.two;
+package bq.activemq.queue.demo2;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

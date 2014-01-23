@@ -22,43 +22,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bq.spring.mvc.xml;
-
-import java.util.Date;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import bq.spring.mvc.domain.HelloWorld;
+package bq.spring.jersey.service;
 
 /**
- * <b> show how to handle xml request and return xml data </b>
+ * <b>  </b>
  *
  * <p> </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *
- * Created at Jan 22, 2014 5:01:54 PM
+ * Created at Jan 22, 2014 8:48:06 PM
  *
  */
+public interface IHelloWorldService {
 
-@Controller
-@RequestMapping(value="/xml")
-public class XmlController {
-
-	@RequestMapping(method=RequestMethod.GET)
-	public String view(){
-		return "xml/xml_view";
-	}
-	
-	@RequestMapping(method=RequestMethod.POST)
-	public @ResponseBody HelloWorld sayXmlHelloworld(@RequestBody HelloWorld helloworld){
-		helloworld.setTimestamp(new Date());
-		helloworld.setGreeting("hello xml world!");
-		return helloworld;
-	}
+	public String greeting(String username);
 	
 }

@@ -1,4 +1,4 @@
-package com.bq.demo.activemq.top.two;
+package bq.activemq.topic.demo1;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -14,8 +14,8 @@
 	<!-- Enable @Controller annotation support -->
 	<mvc:annotation-driven />
 
-	<!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
-	<context:component-scan base-package="bq.spring.mvc.*" />
+	<!-- Scan classpath for annotations, do not scan same package with parent context
+	 (for @Controller, others have been scanned at parent context) -->
 	<context:component-scan base-package="bq.spring.**.ctrl" />
 
 	<!-- static resources handler -->

@@ -22,20 +22,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package bq.spring.jersey;
+package bq.spring.mvc.json.ctrl;
+
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import bq.spring.mvc.domain.HelloWorld;
 
 /**
- * <b>  </b>
+ * <b> show how to handle json request and return json data</b>
  *
  * <p> </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *
- * Created at Jan 22, 2014 8:48:06 PM
+ * Created at Jan 22, 2014 4:45:25 PM
  *
  */
-public interface IHelloWorldService {
 
-	public String greeting(String username);
+@Controller
+@RequestMapping("/json")
+public class JsonController {
+
+	@RequestMapping(method=RequestMethod.GET)
+	public String view(){
+		return "json/json_view";
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,produces="application/json")
+	public @ResponseBody HelloWorld sayJsonHelloworld(@RequestBody HelloWorld helloworld){
+		helloworld.setTimestamp(new Date());
+		helloworld.setGreeting("hello json world!");
+		return helloworld;
+	}
 	
 }

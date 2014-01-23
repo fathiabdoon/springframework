@@ -21,34 +21,52 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+package bq.spring.mvc.multilang.ctrl;
 
-package bq.spring.mvc.demo.login.dao;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.LocaleResolver;
 
-import bq.spring.mvc.demo.login.domain.LoginLog;
+import bq.spring.mvc.domain.HelloWorld;
 
 /**
- * <b>  </b>
+ * <b> how to implement multi-lang </b>
  *
  * <p> </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
- *
- * Created at Jan 23, 2014 8:48:23 AM
- *
+ * 
+ * Created at Jan 20, 2014 11:34:44 PM
  */
-@Repository
-public class LoginLogDao {
+
+@Controller
+@RequestMapping(value="/multilang")
+public class MultilangController {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private LocaleResolver localeResolver;
 	
-	public void insertLoginLog(LoginLog log){
-		String sql = "insert into t_login_log(useridddd, visitip, visitdate) values(?,?,?)";
-		jdbcTemplate.update(sql, log.getUserID(),log.getUserIP(), log.getLoginDate());
+	@RequestMapping(method=RequestMethod.GET)
+	public String defaultAcceptedHeader(Model model){
+		HelloWorld hello = new HelloWorld();
+		hello.setName("Mr. BO");
+		model.addAttribute("helloworld", hello);
+		return "multilang/multilang_view";
+	}
+	
+	@RequestMapping(value="/{locale}")
+	public void changeLocale(@PathVariable("locale") String mylocale, HttpServletRequest request, HttpServletResponse response){
+		// change multilang by change locale dynamically
+		localeResolver.setLocale(request, response, new Locale(mylocale));
 	}
 	
 }

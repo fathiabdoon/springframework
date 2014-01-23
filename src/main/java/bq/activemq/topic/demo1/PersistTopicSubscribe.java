@@ -1,4 +1,4 @@
-package com.bq.demo.activemq.top.two;
+package bq.activemq.topic.demo1;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;

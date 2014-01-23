@@ -21,9 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package bq.spring.mvc.multilang;
 
-import java.util.Locale;
+package bq.spring.mvc.theme.ctrl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,39 +33,42 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.LocaleResolver;
-
-import bq.spring.mvc.domain.HelloWorld;
+import org.springframework.web.servlet.ThemeResolver;
 
 /**
- * <b> how to implement multi-lang </b>
+ * <b> show hoo to dynamically change theme </b>
  *
  * <p> </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
- * 
- * Created at Jan 20, 2014 11:34:44 PM
+ *
+ * Created at Jan 22, 2014 4:08:32 PM
+ *
  */
 
-@Controller
-@RequestMapping(value="/multilang")
-public class MultilangController {
+@Controller("themes")
+@RequestMapping(value="/theme")
+public class DynamicThemeController {
 
 	@Autowired
-	private LocaleResolver localeResolver;
-	
+	private ThemeResolver themeResolver;
+
 	@RequestMapping(method=RequestMethod.GET)
-	public String defaultAcceptedHeader(Model model){
-		HelloWorld hello = new HelloWorld();
-		hello.setName("Mr. BO");
-		model.addAttribute("helloworld", hello);
-		return "multilang/multilang_view";
+	public String defaultTheme(Model model){
+		return "themes/theme_view";
 	}
 	
-	@RequestMapping(value="/{locale}")
-	public void changeLocale(@PathVariable("locale") String mylocale, HttpServletRequest request, HttpServletResponse response){
-		// change multilang by change locale dynamically
-		localeResolver.setLocale(request, response, new Locale(mylocale));
+	@RequestMapping(value="/{theme}")
+	public void changeTheme(@PathVariable String theme, HttpServletRequest request, HttpServletResponse response){
+		themeResolver.setThemeName(request, response, theme);
+	}
+
+	public ThemeResolver getThemeResolver() {
+		return themeResolver;
+	}
+
+	public void setThemeResolver(ThemeResolver themeResolver) {
+		this.themeResolver = themeResolver;
 	}
 	
 }

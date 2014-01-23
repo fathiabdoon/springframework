@@ -13,10 +13,8 @@
  
   
   <!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
-  <context:component-scan base-package="bq.spring.jersey"/>
   <context:component-scan base-package="bq.spring.**.dao"/>
   <context:component-scan base-package="bq.spring.**.service"/>
-  <context:component-scan base-package="bq.spring.**.domain"/>
   
   <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
    
@@ -33,17 +31,17 @@
   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="myDataSource">
   </bean>
   
-  <bean id="jdbcTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="myDataSource">
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="myDataSource">
   </bean>
   
-  <tx:advice id="txAdvice" transaction-manager="jdbcTransactionManager">
+  <tx:advice id="txAdvice" transaction-manager="transactionManager">
   	<tx:attributes>
-  		<tx:method name="*"/>
+  		<tx:method name="*" propagation="REQUIRED" rollback-for="Exception"/>
   	</tx:attributes>
   </tx:advice>
   
   <aop:config proxy-target-class="true">
-  	<aop:pointcut expression="execution(* com.bq.sm.service..*(..))" id="allServiceMethod"/>
+  	<aop:pointcut expression="execution(* bq.spring..service.*.*(..))" id="allServiceMethod"/>
   	<aop:advisor advice-ref="txAdvice" pointcut-ref="allServiceMethod"/>
   </aop:config>
    
@@ -63,7 +61,7 @@
   </bean>
   
   <!-- Hibernate Transaction Manager -->
-  <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+  <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
     <property name="sessionFactory" ref="mySessionFactory"/>
   </bean>
    
