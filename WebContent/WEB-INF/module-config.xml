@@ -13,8 +13,11 @@
  
   
   <!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
-  <context:component-scan base-package="com.bq.demo.*.service"/>
-  <context:component-scan base-package="com.bq.demo.*.dao"/>
+  <context:component-scan base-package="bq.spring.jersey"/>
+  <context:component-scan base-package="bq.spring.*.dao"/>
+  <context:component-scan base-package="bq.spring.*.service"/>
+  
+  <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
    
   <!-- JDBC Data Source. It is assumed you have MySQL running on localhost port 3306 with 
        username root and blank password. Change below if it's not the case -->
@@ -62,19 +65,20 @@
   <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
     <property name="sessionFactory" ref="mySessionFactory"/>
   </bean>
-  
    
   <!-- Activates annotation based transaction management -->
   <tx:annotation-driven transaction-manager="transactionManager"/>
   
-  <!-- jersey rest webservice -->  
-  <bean class="com.bq.demo.jersey.HelloWorldResource" scope="request"/>
+  <!-- jersey rest webservice 
+  <bean class="bq.spring.jersey.HelloWorldResource" scope="request"/>
+  -->  
   
   <!-- CXF webservice -->
   <import resource="classpath:META-INF/cxf/cxf.xml" />
   <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
   <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
  
-  <jaxws:endpoint id="helloWorld" implementor="com.bq.demo.cxf.helloworld.HelloworldImp" address="/HelloWorld" />
+  <!-- define service that need to be published -->
+  <jaxws:endpoint id="helloWorld" implementor="bq.spring.cxf.HelloWorldImp" address="/helloworld" />
   
 </beans>

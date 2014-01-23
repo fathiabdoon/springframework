@@ -6,32 +6,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="./js/jquery.js"></script>
 <script type="text/javascript">
-var xmlpost ={
-        type: 'POST', 
-        url: 'xml',
-        data: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><HelloWorld><name>mr bo</name></HelloWorld>",
-        dataType: 'xml',  
-        contentType:'application/xml;charset=UTF-8',         
-        success: function(result) {   
-            $('#greetingmsg').html(parseXmlHelloworld(result));
-        },
-		error: function(XMLHttpRequest, textStatus, errorThrown){
-			$('#greetingmsg').html(textStatus + ':' + errorThrown);
-		} 
-    };
 
 function parseXmlHelloworld(result){
 	return $(result).find("name").text() + "," + $(result).find("greeting").text() + ',' + $(result).find("timestamp").text();
 }
   
-function doTestXml(){
-	$.ajax(xmlpost);
-}
-
 $(function(){
 	$('#xmlbutton').click(
 		function(){
-			doTestXml();
+			$.ajax({
+		        type: 'POST', 
+		        url: 'xml',
+		        data: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><HelloWorld><name>"+$('#loginName').val()+"</name></HelloWorld>",
+		        dataType: 'xml',  
+		        contentType:'application/xml;charset=UTF-8',
+		        success: function(result) {
+		            $('#greetingmsg').html(parseXmlHelloworld(result));
+		        },
+				error: function(XMLHttpRequest, textStatus, errorThrown){
+					$('#greetingmsg').html(textStatus + ':' + errorThrown);
+				} 
+		    });
 		}	
 	);
 });
@@ -40,7 +35,7 @@ $(function(){
 </head>
 <body>
 <div id="greetingmsg"></div>
-用户名：  
+who do you want to greet：  
 <input id="loginName" name="name" size="20" type="text"/>  
 <input id="xmlbutton" name="submit" type="button" value="test ajax xml restful"/>
 </body>

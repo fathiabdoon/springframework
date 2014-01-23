@@ -14,6 +14,8 @@
 <li><a href="./theme">dynamically change theme</a></li>
 <li><a href="./json">handle json request and return json type data</a></li>
 <li><a href="./xml">handle xml request and return json type data</a></li>
+<li><a href="./jersey/helloworld">intergrate with jersey to support restful webservice</a></li>
+<li><a href="./ws">intergrate with CXF to publish tradition webservice</a></li>
 <br>
 
 <li><a href="./theme/default">spring mvc: dynamic theme</a></li>

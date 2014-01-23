@@ -59,7 +59,6 @@
 		<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor" />
 	</mvc:interceptors>
 
-
 	<!-- jsp view: name such as "test" into /WEB-INF/views/test.jsp -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

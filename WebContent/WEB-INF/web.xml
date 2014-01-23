@@ -32,7 +32,7 @@
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>com.bq.demo.jersey.JerseyResource</param-value>
+			<param-value>bq.spring.jersey.JerseyResource</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>
 	</servlet>

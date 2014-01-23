@@ -4,30 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="/demo-pizza/js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
 <script type="text/javascript">
-var jsonpost ={
-        type: 'POST', 
-        url: 'json',
-        data: JSON.stringify({name:'mr bo'}),
-        dataType: 'json',  
-        contentType:'application/json;charset=UTF-8',         
-        success: function(result) {   
-            $('#greetingmsg').html(result.name + ',' + result.greeting + ',' + result.timestamp);
-        },
-		error: function(XMLHttpRequest, textStatus, errorThrown){  
-			$('#greetingmsg').html(textStatus + ':' + errorThrown);
-		} 
-    };
-  
-function doTestJson(){  
-    $.ajax(jsonpost);
-};
-
 $(function(){
 	$('#jsonbutton').click(
 		function(){
-			doTestJson();	
+			$.ajax({
+		        type: 'POST', 
+		        url: 'json',
+		        data: JSON.stringify({name: $('#loginName').val()}),
+		        dataType: 'json',  
+		        contentType:'application/json;charset=UTF-8',         
+		        success: function(result) {   
+		            $('#greetingmsg').html(result.name + ',' + result.greeting + ',' + new Date(result.timestamp).toLocaleString());
+		        },
+				error: function(XMLHttpRequest, textStatus, errorThrown){  
+					$('#greetingmsg').html(textStatus + ':' + errorThrown);
+				} 
+			});
 		}	
 	);
 });
@@ -36,7 +30,7 @@ $(function(){
 </head>
 <body>
 <div id="greetingmsg"></div>
-用户名：  
+who do you want to greet：  
 <input id="loginName" name="name" size="20" type="text" />  
 <input id="jsonbutton" name="submit" type="button" value="test ajax json restful"/>
 </body>

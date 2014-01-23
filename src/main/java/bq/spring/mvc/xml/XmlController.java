@@ -44,6 +44,7 @@ import bq.spring.mvc.domain.HelloWorld;
  * Created at Jan 22, 2014 5:01:54 PM
  *
  */
+
 @Controller
 @RequestMapping(value="/xml")
 public class XmlController {
@@ -53,7 +54,7 @@ public class XmlController {
 		return "xml/xml_view";
 	}
 	
-	@RequestMapping(value="/xml",method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.POST)
 	public @ResponseBody HelloWorld sayXmlHelloworld(@RequestBody HelloWorld helloworld){
 		helloworld.setTimestamp(new Date());
 		helloworld.setGreeting("hello xml world!");
