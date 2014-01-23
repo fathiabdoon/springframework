@@ -10,7 +10,7 @@
 <c:if test="${!empty error }">
 	<font color="red"><c:out value="${error}"/></font>
 </c:if>
-<form action="<c:url value="/login/logincheck.html"/>" method="post">
+<form action="<c:url value="./login"/>" method="post">
 user name: <input type="text" name="userName"><br>
 user password:<input type="password" name="userPassword"/><br>
 <input type="submit" value="login"/>

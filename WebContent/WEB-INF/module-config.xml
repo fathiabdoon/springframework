@@ -14,8 +14,9 @@
   
   <!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
   <context:component-scan base-package="bq.spring.jersey"/>
-  <context:component-scan base-package="bq.spring.*.dao"/>
-  <context:component-scan base-package="bq.spring.*.service"/>
+  <context:component-scan base-package="bq.spring.**.dao"/>
+  <context:component-scan base-package="bq.spring.**.service"/>
+  <context:component-scan base-package="bq.spring.**.domain"/>
   
   <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
    
@@ -51,7 +52,7 @@
     <property name="dataSource" ref="myDataSource"/>
     <property name="packagesToScan">
       <array>
-        <value>com.bq.demo</value>
+        <value>bq.spring.**.domain</value>
       </array>
     </property>
     <property name="hibernateProperties">

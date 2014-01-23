@@ -16,6 +16,7 @@
 
 	<!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
 	<context:component-scan base-package="bq.spring.mvc.*" />
+	<context:component-scan base-package="bq.spring.**.ctrl" />
 
 	<!-- static resources handler -->
 	<mvc:resources mapping="/js/**" location="/js/" />

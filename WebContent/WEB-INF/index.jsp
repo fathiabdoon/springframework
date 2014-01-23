@@ -10,6 +10,8 @@
 <div>
 <h2>case list:</h2>
 <ul>
+<li><a href="./login">a simple demo, use spring mvc, spring jdbc, transaction, mysql,</a></li>
+<li><a href="./pizza">a simple demo using hibernate as persistance tenchnology</a></li>
 <li><a href="./multilang">dynamically change locale to support multi-lang</a></li>
 <li><a href="./theme">dynamically change theme</a></li>
 <li><a href="./json">handle json request and return json type data</a></li>
