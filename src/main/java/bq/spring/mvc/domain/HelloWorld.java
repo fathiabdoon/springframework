@@ -1,4 +1,4 @@
-package com.bq.demo.json.ctrl;
+package bq.spring.mvc.domain;
 
 import java.util.Date;
 

@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bq.demo.json.ctrl.HelloWorld;
+import bq.spring.mvc.domain.HelloWorld;
 
 /**
  * <b> show how to handle xml request and return xml data </b>

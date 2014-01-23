@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 
-import com.bq.demo.json.ctrl.HelloWorld;
+import bq.spring.mvc.domain.HelloWorld;
 
 /**
  * <b> how to implement multi-lang </b>
