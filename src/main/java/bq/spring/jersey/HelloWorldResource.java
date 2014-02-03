@@ -38,9 +38,10 @@ import org.springframework.stereotype.Component;
 import bq.spring.jersey.service.IHelloWorldService;
 
 /**
- * <b>  </b>
+ * <b> a simple demo, restful resource </b>
  *
- * <p> </p>
+ * <p> show how to integrate Jersey with Spring, 
+ * and use it publish some restful service </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

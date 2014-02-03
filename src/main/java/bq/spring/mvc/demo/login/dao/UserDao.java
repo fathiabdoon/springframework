@@ -35,9 +35,9 @@ import org.springframework.stereotype.Repository;
 import bq.spring.mvc.demo.login.domain.User;
 
 /**
- * <b>  </b>
+ * <b> dao tier </b>
  *
- * <p> </p>
+ * <p> based on spring jdbc </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

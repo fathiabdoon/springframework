@@ -28,7 +28,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * <b>  </b>
+ * <b> create a view to test Jersey web service </b>
  *
  * <p> </p>
  *

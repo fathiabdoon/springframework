@@ -38,9 +38,9 @@ import bq.spring.mvc.demo.login.domain.User;
 import bq.spring.mvc.demo.login.service.UserService;
 
 /**
- * <b>  </b>
+ * <b> a simple demo - login </b>
  *
- * <p> </p>
+ * <p> show a fully n-tier construction with spring mvc and spring jdbc </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

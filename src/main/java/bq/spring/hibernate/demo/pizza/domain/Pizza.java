@@ -30,16 +30,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * <b>  </b>
+ * <b> a simple demo, entity </b>
  *
- * <p> </p>
+ * <p> show how to integrate and use spring and hibernate</p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *
  * Created at Jan 23, 2014 12:23:47 PM
  *
  */
-
 @Entity
 @Table(name = "pizza")
 public class Pizza {

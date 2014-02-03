@@ -29,9 +29,10 @@ import java.util.Date;
 import org.springframework.stereotype.Service;
 
 /**
- * <b>  </b>
+ * <b> a simple Jersy demo </b>
  *
- * <p> </p>
+ * <p> show how to integrate Jersey with Spring, 
+ * and use it publish some restful service</p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

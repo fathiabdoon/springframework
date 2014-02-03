@@ -35,7 +35,7 @@ import org.springframework.transaction.annotation.Transactional;
 import bq.spring.hibernate.demo.pizza.domain.Pizza;
 
 /**
- * <b>  </b>
+ * <b> dao tier </b>
  *
  * <p> </p>
  *
@@ -51,11 +51,6 @@ public class PizzaDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	/**
-	 * @Transactional annotation below will trigger Spring Hibernate transaction
-	 *                manager to automatically create a hibernate session. See
-	 *                src/main/webapp/WEB-INF/servlet-context.xml
-	 */
 	@Transactional
 	public List<Pizza> findAll() {
 		Session session = sessionFactory.getCurrentSession();

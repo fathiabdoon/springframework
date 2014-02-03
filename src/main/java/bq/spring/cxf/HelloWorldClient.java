@@ -27,7 +27,7 @@ package bq.spring.cxf;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
 /**
- * <b>  </b>
+ * <b> one kind of cxf client to invoke webservice </b>
  *
  * <p> </p>
  *

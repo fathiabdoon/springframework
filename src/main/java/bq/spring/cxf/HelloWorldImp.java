@@ -27,9 +27,9 @@ package bq.spring.cxf;
 import javax.jws.WebService;
 
 /**
- * <b>  </b>
+ * <b> show how to publish a web service with CXF </b>
  *
- * <p> </p>
+ * <p> show how to integrate CXF with spring </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

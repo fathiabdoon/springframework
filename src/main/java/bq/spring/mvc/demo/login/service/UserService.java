@@ -36,9 +36,9 @@ import bq.spring.mvc.demo.login.domain.LoginLog;
 import bq.spring.mvc.demo.login.domain.User;
 
 /**
- * <b>  </b>
+ * <b> service tier </b>
  *
- * <p> </p>
+ * <p> just for simple test</p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

@@ -36,9 +36,9 @@ import bq.spring.hibernate.demo.pizza.dao.PizzaDao;
 import bq.spring.hibernate.demo.pizza.domain.Pizza;
 
 /**
- * <b>  </b>
+ * <b> a simple demo </b>
  *
- * <p> </p>
+ * <p> show how to integrate and use spring and hibernate </p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *

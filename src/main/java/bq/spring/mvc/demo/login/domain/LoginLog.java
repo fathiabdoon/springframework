@@ -28,9 +28,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <b>  </b>
+ * <b> pojo </b>
  *
- * <p> </p>
+ * <p> because use spring jdbc in this demo</p>
  *
  * @author Jonathan Q. Bo (jonathan.q.bo@gmail.com)
  *
